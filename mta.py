@@ -43,6 +43,9 @@ def feeds_to_rows(feed_list):
 					row['nyct_train_id'] = trip_update.trip.Extensions[nyct_subway.nyct_trip_descriptor].train_id
 				if trip_update.trip.Extensions[nyct_subway.nyct_trip_descriptor].HasField('is_assigned'):	
 					row['nyct_is_assigned'] = trip_update.trip.Extensions[nyct_subway.nyct_trip_descriptor].is_assigned
+				
+				# Consider taking only first stop_time in this sequence (i.e. leave out the for-loop)
+				# The first stop_time contains the stop the train is currently approaching, stopped at or about to leave
 				for stop_time in trip_update.stop_time_update:
 					row['stop_id'] = stop_time.stop_id
 					row['arrival_time'] = stop_time.arrival.time 
