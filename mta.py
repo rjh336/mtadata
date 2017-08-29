@@ -58,7 +58,7 @@ def feeds_to_rows(feed_list):
 
 ####################################################
 
-PATH_NAME = './gtfs'
+PATH_NAME = './downloads'
 feed_list = grab_feeds(PATH_NAME)
 subway_df = feeds_to_rows(feed_list)
 
